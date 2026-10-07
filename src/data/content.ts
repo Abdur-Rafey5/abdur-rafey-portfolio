@@ -60,18 +60,18 @@ export const oLevels = {
   group: 'Sciences',
   result: '6 A*',
   subjects: [
+    { subject: 'Mathematics', grade: 'A*' },
+    { subject: 'Computer Science', grade: '[TO FILL]' },
+    { subject: 'Physics', grade: '[TO FILL]' },
+    { subject: 'Chemistry', grade: '[TO FILL]' },
     { subject: 'English Language', grade: '[TO FILL]' },
     { subject: 'Urdu', grade: '[TO FILL]' },
     { subject: 'Islamiyat', grade: '[TO FILL]' },
     { subject: 'Pakistan Studies', grade: '[TO FILL]' },
-    { subject: 'Physics', grade: '[TO FILL]' },
-    { subject: 'Mathematics', grade: '[TO FILL]' },
-    { subject: 'Chemistry', grade: '[TO FILL]' },
-    { subject: 'Computer Science', grade: '[TO FILL]' },
   ] as OLevelSubject[],
-  extracurricular: '[TO FILL — e.g. debate, robotics club, etc.]',
+  extracurricular: 'Extracurricular participation — Additional details to be added',
   societies: '[TO FILL — e.g. Science Society, Prefect Body, etc.]',
-  note: 'Overall result: 6 A* achieved across the Sciences group.',
+  note: 'Academic Foundation: 6 A* achieved across the Sciences group, including Mathematics A*.',
 };
 
 // ─── A Levels ───────────────────────────────────────────────
@@ -81,15 +81,31 @@ export const aLevels = {
   period: '2020 – 2022',
   qualification: 'Cambridge A Levels',
   group: 'Sciences',
-  result: 'Straight A\'s',
+  result: "Straight A's",
   subjects: [
-    { subject: 'Physics', grade: 'A' },
     { subject: 'Mathematics', grade: 'A' },
     { subject: 'Computer Science', grade: 'A' },
+    { subject: 'Physics', grade: 'A' },
   ],
-  extracurricular: '[TO FILL — e.g. physics olympiad, coding competitions, etc.]',
-  societies: '[TO FILL — e.g. Science Society, Student Council, etc.]',
+  extracurricular: 'Extracurricular participation — Additional details to be added',
+  societies: 'IYLO Roots Ivy (Head of Social Events, Model United Nations)',
+  leadership: [
+    {
+      organization: 'IYLO Roots Ivy',
+      role: 'Head of Social Events',
+      description: 'Planned and directed high-profile student social events, team coordination, and Model United Nations (MUN) delegations.',
+      tags: ['Event Management', 'MUN', 'Student Leadership'],
+    },
+  ],
 };
+
+// ─── Leadership Interface ──────────────────────────────────
+export interface LeadershipRole {
+  organization: string;
+  role: string;
+  description: string;
+  tags: string[];
+}
 
 // ─── FAST-NUCES ─────────────────────────────────────────────
 export const fast = {
@@ -106,8 +122,44 @@ export const fast = {
     { course: 'Operating Systems', grade: '[TO FILL]' },
     { course: 'Software Engineering', grade: '[TO FILL]' },
   ] as CourseGrade[],
-  extracurricular: '[TO FILL — e.g. SOFTEC, ICPC, ACM chapter, etc.]',
-  societies: '[TO FILL — e.g. ACM NUCES, Google DSC, Automation Society, etc.]',
+  extracurricular: 'Model United Nations (MUN), FAST Orators\' League, university outreach, and society resource management.',
+  societies: "FAST Orators' League, GLI, VOICE, IYLO Roots Ivy",
+  leadership: [
+    {
+      organization: 'FAST Orators\' League',
+      role: 'Model United Nations & Executive Member',
+      description: 'Active participant and delegate in Model United Nations (MUN), competitive parliamentary debating, and campus oratory sessions.',
+      tags: ['Model United Nations', 'Public Speaking', 'Debating'],
+    },
+    {
+      organization: 'GLI',
+      role: 'Director Outreach',
+      description: 'Spearheaded external engagement, organizational partnerships, institutional communication, and large-scale outreach drives.',
+      tags: ['Outreach', 'Partnerships', 'Leadership'],
+    },
+    {
+      organization: 'VOICE',
+      role: 'Head of Resources',
+      description: 'Managed asset allocation, resource logistics, procurement planning, and operational coordination for society initiatives.',
+      tags: ['Resource Management', 'Logistics', 'Operations'],
+    },
+    {
+      organization: 'IYLO Roots Ivy',
+      role: 'Head of Social Events',
+      description: 'Organized and executed student social functions, cultural events, and represented institution at competitive MUN conferences.',
+      tags: ['Event Management', 'MUN', 'Team Coordination'],
+    },
+  ] as LeadershipRole[],
+  coreSkills: [
+    'Leadership',
+    'Communication',
+    'Public speaking',
+    'Event management',
+    'Outreach',
+    'Resource management',
+    'Team coordination',
+    'Organizational planning',
+  ],
 };
 
 // ─── Experience ─────────────────────────────────────────────

@@ -69,24 +69,72 @@ export function FASTClient() {
         </div>
       </Section>
 
-      {/* Extracurricular & Societies */}
-      <Section id="activities">
-        <SectionHeading label="// beyond the books" title="Activities & Societies" accent="cyan" />
-        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-          <Card glowColor="#00f5ff">
-            <div className="flex items-center gap-2 mb-3">
-              <FiActivity className="text-neon-cyan" size={18} />
-              <h3 className="font-bold text-white">Extracurricular Activities</h3>
-            </div>
-            <span className="placeholder-badge">{fast.extracurricular}</span>
-          </Card>
-          <Card glowColor="#8b5cf6">
-            <div className="flex items-center gap-2 mb-3">
-              <FiUsers className="text-neon-violet" size={18} />
-              <h3 className="font-bold text-white">Societies Joined</h3>
-            </div>
-            <span className="placeholder-badge">{fast.societies}</span>
-          </Card>
+      {/* Leadership & Activities */}
+      <Section id="leadership">
+        <SectionHeading label="// student organizations" title="Leadership & Activities" accent="cyan" />
+        <div className="grid md:grid-cols-2 gap-6">
+          {fast.leadership.map((item, i) => (
+            <motion.div
+              key={item.organization + item.role}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+            >
+              <Card glowColor={i % 2 === 0 ? '#00f5ff' : '#8b5cf6'} className="h-full flex flex-col justify-between">
+                <div>
+                  <div className="flex items-start justify-between mb-3">
+                    <span className="text-xs font-mono text-neon-cyan uppercase tracking-wider">{item.organization}</span>
+                    <FiAward className="text-neon-violet" size={16} />
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-2">{item.role}</h3>
+                  <p className="text-sm text-gray-400 leading-relaxed mb-4">{item.description}</p>
+                </div>
+                <div className="flex flex-wrap gap-2 pt-2 border-t border-white/5">
+                  {item.tags.map((t) => (
+                    <span key={t} className="text-xs px-2.5 py-0.5 rounded-full bg-white/5 text-gray-300 font-mono">
+                      #{t}
+                    </span>
+                  ))}
+                </div>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Core Skills Developed */}
+      <Section id="skills-developed">
+        <SectionHeading label="// competencies" title="Core Skills Developed" accent="lime" />
+        <div className="glass-card rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto border border-white/10">
+          <p className="text-sm text-gray-400 mb-6 text-center max-w-2xl mx-auto">
+            Practical executive, interpersonal, and managerial competencies honed through leading student bodies, national delegations, and university initiatives:
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {fast.coreSkills.map((skill, idx) => {
+              const colors = ['#00f5ff', '#ff00ff', '#8b5cf6', '#39ff14'];
+              const color = colors[idx % colors.length];
+              return (
+                <motion.div
+                  key={skill}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: idx * 0.05 }}
+                  whileHover={{ scale: 1.05 }}
+                  className="px-4 py-2 rounded-xl border text-sm font-semibold tracking-wide transition-all shadow-sm"
+                  style={{
+                    borderColor: `${color}40`,
+                    background: `${color}08`,
+                    color: '#ffffff',
+                    boxShadow: `0 0 12px ${color}15`,
+                  }}
+                >
+                  <span style={{ color }}>✦</span> {skill}
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </Section>
     </>

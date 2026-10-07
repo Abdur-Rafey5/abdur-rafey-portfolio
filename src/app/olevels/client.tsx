@@ -72,7 +72,9 @@ export function OLevelsClient() {
               <FiActivity className="text-neon-violet" size={18} />
               <h3 className="font-bold text-white">Extracurricular Activities</h3>
             </div>
-            <span className="placeholder-badge">{oLevels.extracurricular}</span>
+            <span className="text-xs text-neon-cyan font-mono bg-neon-cyan/10 px-3 py-1.5 rounded-lg border border-neon-cyan/20 inline-block">
+              {oLevels.extracurricular}
+            </span>
           </Card>
           <Card glowColor="#ff00ff">
             <div className="flex items-center gap-2 mb-3">

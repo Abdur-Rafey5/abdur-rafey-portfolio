@@ -318,6 +318,54 @@ export default function HomePage() {
         <Timeline items={experiences} />
       </Section>
 
+      {/* Leadership & Activities */}
+      <Section id="leadership">
+        <SectionHeading label="// impact & leadership" title="Leadership & Activities" accent="cyan" />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          {fast.leadership.map((item, i) => (
+            <motion.div
+              key={item.organization + item.role}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+            >
+              <Card glowColor={i % 2 === 0 ? '#00f5ff' : '#8b5cf6'} className="h-full flex flex-col justify-between">
+                <div>
+                  <span className="text-[11px] font-mono text-neon-cyan uppercase tracking-wider block mb-1">{item.organization}</span>
+                  <h3 className="font-bold text-white text-base mb-1.5">{item.role}</h3>
+                  <p className="text-xs text-gray-400 leading-relaxed">{item.description}</p>
+                </div>
+                <div className="flex flex-wrap gap-1.5 mt-3 pt-2 border-t border-white/5">
+                  {item.tags.map((t) => (
+                    <span key={t} className="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-gray-300 font-mono">
+                      #{t}
+                    </span>
+                  ))}
+                </div>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Core Competencies Bar */}
+        <div className="glass-card rounded-xl p-5 border border-white/5 max-w-4xl mx-auto">
+          <div className="text-xs font-mono text-center text-gray-400 uppercase tracking-widest mb-3">
+            // Core Leadership & Soft Skills Developed
+          </div>
+          <div className="flex flex-wrap justify-center gap-2">
+            {fast.coreSkills.map((skill) => (
+              <span
+                key={skill}
+                className="text-xs font-mono px-3 py-1 rounded-full border border-neon-cyan/20 bg-neon-cyan/5 text-gray-200"
+              >
+                ✦ {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      </Section>
+
       {/* Projects */}
       <Section id="projects">
         <SectionHeading label="// projects" title="What I've Built" accent="lime" />

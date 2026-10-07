@@ -56,23 +56,36 @@ export function ALevelsClient() {
         </div>
       </Section>
 
-      {/* Extracurricular & Societies */}
+      {/* Leadership & Activities */}
       <Section id="activities">
-        <SectionHeading label="// beyond the books" title="Activities & Societies" accent="magenta" />
-        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <SectionHeading label="// leadership & societies" title="Activities & Leadership" accent="magenta" />
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           <Card glowColor="#ff00ff">
-            <div className="flex items-center gap-2 mb-3">
-              <FiActivity className="text-neon-magenta" size={18} />
-              <h3 className="font-bold text-white">Extracurricular Activities</h3>
+            <div className="flex items-start justify-between mb-2">
+              <span className="text-xs font-mono text-neon-magenta uppercase tracking-wider">Leadership · Roots Ivy</span>
+              <FiUsers className="text-neon-magenta" size={18} />
             </div>
-            <span className="placeholder-badge">{aLevels.extracurricular}</span>
+            <h3 className="font-bold text-white text-lg mb-1">Head of Social Events — IYLO</h3>
+            <p className="text-sm text-gray-400 mb-4">
+              Directed campus event coordination, student gatherings, and Model United Nations (IYLO MUN) delegations at Roots Ivy International School.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              <span className="text-xs px-2.5 py-0.5 rounded-full bg-neon-magenta/10 text-neon-magenta font-mono">#EventManagement</span>
+              <span className="text-xs px-2.5 py-0.5 rounded-full bg-white/5 text-gray-300 font-mono">#MUN</span>
+              <span className="text-xs px-2.5 py-0.5 rounded-full bg-white/5 text-gray-300 font-mono">#Leadership</span>
+            </div>
           </Card>
           <Card glowColor="#8b5cf6">
             <div className="flex items-center gap-2 mb-3">
-              <FiUsers className="text-neon-violet" size={18} />
-              <h3 className="font-bold text-white">Societies Joined</h3>
+              <FiActivity className="text-neon-violet" size={18} />
+              <h3 className="font-bold text-white text-lg">Extracurricular Activities</h3>
             </div>
-            <span className="placeholder-badge">{aLevels.societies}</span>
+            <p className="text-sm text-gray-400 mb-4">
+              Active engagement in academic societies, campus student bodies, and Model United Nations conferences.
+            </p>
+            <span className="text-xs text-neon-violet font-mono bg-neon-violet/10 px-3 py-1.5 rounded-lg border border-neon-violet/20 inline-block">
+              {aLevels.extracurricular}
+            </span>
           </Card>
         </div>
       </Section>

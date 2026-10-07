@@ -83,9 +83,9 @@ src/
 All content is stored in `src/data/content.ts` and typed with TypeScript interfaces:
 
 - `profile` — name, taglines, summary, email, links
-- `oLevels` — institution, subjects (with grades), extracurricular, societies
-- `aLevels` — institution, period, subjects, extracurricular, societies
-- `fast` — degree, campus, period, CGPA, courses (with grades), extracurricular, societies
+- `oLevels` — institution, subjects (Mathematics A* confirmed), extracurricular, societies
+- `aLevels` — institution, period, subjects (Math A, CS A, Physics A), extracurricular, IYLO leadership
+- `fast` — degree, campus, period, CGPA, courses, leadership roles (FAST Orators' League, GLI, VOICE, IYLO), core skills developed
 - `experiences[]` — role, company, location, period, bullet points, tags
 - `projects[]` — title, description, tags, github, demo
 - `skillCategories[]` — category name and array of `{ name, icon }` skills
