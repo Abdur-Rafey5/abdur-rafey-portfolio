@@ -1,19 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FiAward, FiBookOpen, FiUsers, FiActivity, FiCpu } from 'react-icons/fi';
+import { FiAward, FiBookOpen, FiCpu, FiCode } from 'react-icons/fi';
 import { Section, SectionHeading } from '@/components/Section';
 import { Card } from '@/components/Card';
+import { SkillGrid } from '@/components/SkillGrid';
 import { fast } from '@/data/content';
-
-function GradeTag({ grade }: { grade: string }) {
-  const isPlaceholder = grade === '[TO FILL]';
-  return isPlaceholder ? (
-    <span className="placeholder-badge">{grade}</span>
-  ) : (
-    <span className="text-neon-lime font-bold font-mono">{grade}</span>
-  );
-}
 
 export function FASTClient() {
   return (
@@ -37,7 +29,7 @@ export function FASTClient() {
               <FiCpu size={14} /> BS Computer Science
             </div>
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-neon-cyan/30 bg-neon-cyan/5 text-neon-cyan text-sm font-mono">
-              <FiAward size={14} /> CGPA: <GradeTag grade={fast.cgpa} />
+              <FiCode size={14} /> Focus: AI Automation & Agentic Systems
             </div>
           </div>
         </motion.div>
@@ -45,23 +37,25 @@ export function FASTClient() {
 
       {/* Courses */}
       <Section id="courses">
-        <SectionHeading label="// coursework" title="Relevant Courses" accent="magenta" />
+        <SectionHeading label="// coursework" title="Core Coursework" accent="magenta" />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {fast.courses.map((c, i) => (
+          {fast.courses.map((course, i) => (
             <motion.div
-              key={c.course}
+              key={course}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.07 }}
             >
               <Card glowColor="#ff00ff" tilt={false}>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <FiBookOpen className="text-neon-magenta flex-shrink-0" size={14} />
-                    <p className="text-sm text-gray-300 font-medium">{c.course}</p>
+                <div className="flex items-center gap-3 py-1">
+                  <div className="p-2 rounded-lg bg-neon-magenta/10 text-neon-magenta">
+                    <FiBookOpen size={16} />
                   </div>
-                  <GradeTag grade={c.grade} />
+                  <div>
+                    <p className="text-sm text-white font-semibold">{course}</p>
+                    <span className="text-[11px] font-mono text-gray-500">FAST-NUCES CS Curriculum</span>
+                  </div>
                 </div>
               </Card>
             </motion.div>
@@ -69,9 +63,15 @@ export function FASTClient() {
         </div>
       </Section>
 
+      {/* Technical Skills Section */}
+      <Section id="technical-skills">
+        <SectionHeading label="// tech stack" title="Technical Skills" accent="cyan" />
+        <SkillGrid />
+      </Section>
+
       {/* Leadership & Activities */}
       <Section id="leadership">
-        <SectionHeading label="// student organizations" title="Leadership & Activities" accent="cyan" />
+        <SectionHeading label="// student organizations" title="Leadership & Activities" accent="magenta" />
         <div className="grid md:grid-cols-2 gap-6">
           {fast.leadership.map((item, i) => (
             <motion.div

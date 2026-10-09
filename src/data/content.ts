@@ -35,6 +35,11 @@ export interface CourseGrade {
   grade: string;
 }
 
+export interface ActivityItem {
+  title: string;
+  points: string[];
+}
+
 // ─── Profile ────────────────────────────────────────────────
 export const profile = {
   name: 'Abdur Rafey',
@@ -50,28 +55,56 @@ export const profile = {
   email: 'abdulrafaymalik5@gmail.com',
   linkedin: 'https://linkedin.com/in/abdur-rafey-malik',
   github: 'https://github.com/Abdur-Rafey5',
-  cvUrl: '#', // [TO FILL] — link to hosted CV PDF
+  cvUrl: '#', // link to hosted CV PDF
 };
 
 // ─── O Levels ───────────────────────────────────────────────
 export const oLevels = {
-  institution: 'Ames Cambridge',
+  institution: 'Aims Cambridge System',
   qualification: 'Cambridge O Levels',
   group: 'Sciences',
   result: '6 A*',
   subjects: [
-    { subject: 'Mathematics', grade: 'A*' },
-    { subject: 'Computer Science', grade: '[TO FILL]' },
-    { subject: 'Physics', grade: '[TO FILL]' },
-    { subject: 'Chemistry', grade: '[TO FILL]' },
-    { subject: 'English Language', grade: '[TO FILL]' },
-    { subject: 'Urdu', grade: '[TO FILL]' },
-    { subject: 'Islamiyat', grade: '[TO FILL]' },
-    { subject: 'Pakistan Studies', grade: '[TO FILL]' },
-  ] as OLevelSubject[],
-  extracurricular: 'Extracurricular participation — Additional details to be added',
-  societies: '[TO FILL — e.g. Science Society, Prefect Body, etc.]',
-  note: 'Academic Foundation: 6 A* achieved across the Sciences group, including Mathematics A*.',
+    'Mathematics',
+    'Computer Science',
+    'Physics',
+    'Chemistry',
+    'English Language',
+    'Urdu',
+    'Islamiyat',
+    'Pakistan Studies',
+  ],
+  extracurricular: [
+    {
+      title: 'Debate & Public Speaking',
+      points: [
+        'Participated in school-level debating and public-speaking activities.',
+        'Presented arguments on academic, social, and current-affairs topics.',
+        'Improved confidence, communication, critical thinking, and impromptu speaking.',
+        'Learned to structure arguments and respond effectively to opposing viewpoints.',
+      ],
+    },
+    {
+      title: 'Sports & Athletics',
+      points: [
+        'Participated in school sports and athletic activities.',
+        'Took part in team-based sporting activities and inter-school events.',
+        'Developed teamwork, discipline, coordination, and competitive spirit.',
+        'Balanced academic responsibilities with physical and extracurricular activities.',
+      ],
+    },
+    {
+      title: 'Science & Technology Exhibitions',
+      points: [
+        'Participated in school science and technology exhibitions.',
+        'Worked on projects involving research, problem-solving, and practical implementation.',
+        'Presented project ideas and demonstrated their functionality to teachers and students.',
+        'Developed creativity, technical curiosity, presentation skills, and teamwork.',
+      ],
+    },
+  ] as ActivityItem[],
+  societies: ['Literary Society', 'Sports Society', 'Debating Society'],
+  note: 'Academic Foundation: 6 A* achieved across the Sciences group (confirmed Mathematics A*).',
 };
 
 // ─── A Levels ───────────────────────────────────────────────
@@ -87,8 +120,17 @@ export const aLevels = {
     { subject: 'Computer Science', grade: 'A' },
     { subject: 'Physics', grade: 'A' },
   ],
-  extracurricular: 'Extracurricular participation — Additional details to be added',
-  societies: 'IYLO Roots Ivy (Head of Social Events, Model United Nations)',
+  extracurricular: [
+    {
+      title: 'Winner — Business Idea Challenge',
+      points: [
+        'Participated in the Business Idea Challenge at Roots Ivy.',
+        'Presented the business model and innovative idea to an executive judging panel.',
+        'Won the Business Idea Challenge, demonstrating entrepreneurial thinking, creativity, problem-solving, and presentation skills.',
+      ],
+    },
+  ] as ActivityItem[],
+  societies: ['Music Society', 'Adventure Club', 'Sports Society', 'IYLO Roots Ivy'],
   leadership: [
     {
       organization: 'IYLO Roots Ivy',
@@ -113,17 +155,16 @@ export const fast = {
   campus: 'Lahore',
   degree: 'BS Computer Science',
   period: '2022 – 2026',
-  cgpa: '[TO FILL]',
   courses: [
-    { course: 'Applied Machine Learning', grade: '[TO FILL]' },
-    { course: 'Data Structures & Algorithms', grade: '[TO FILL]' },
-    { course: 'Object-Oriented Programming', grade: '[TO FILL]' },
-    { course: 'Database Management Systems', grade: '[TO FILL]' },
-    { course: 'Operating Systems', grade: '[TO FILL]' },
-    { course: 'Software Engineering', grade: '[TO FILL]' },
-  ] as CourseGrade[],
+    'Applied Machine Learning',
+    'Data Structures & Algorithms',
+    'Object-Oriented Programming',
+    'Database Management Systems',
+    'Operating Systems',
+    'Software Engineering',
+  ],
   extracurricular: 'Model United Nations (MUN), FAST Orators\' League, university outreach, and society resource management.',
-  societies: "FAST Orators' League, GLI, VOICE, IYLO Roots Ivy",
+  societies: ["FAST Orators' League", 'GLI', 'VOICE', 'IYLO Roots Ivy'],
   leadership: [
     {
       organization: 'FAST Orators\' League',
