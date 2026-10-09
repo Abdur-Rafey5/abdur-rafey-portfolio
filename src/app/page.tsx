@@ -7,7 +7,7 @@ import { useInView } from 'react-intersection-observer';
 import Link from 'next/link';
 import {
   FiArrowRight, FiGithub, FiLinkedin, FiMail, FiDownload,
-  FiCode, FiCpu, FiZap,
+  FiCode, FiCpu, FiZap, FiBarChart2,
 } from 'react-icons/fi';
 
 import { Section, SectionHeading } from '@/components/Section';
@@ -289,20 +289,68 @@ export default function HomePage() {
       {/* About */}
       <Section id="about">
         <SectionHeading label="// about me" title="Who I Am" accent="cyan" />
-        <div className="max-w-3xl mx-auto text-center text-gray-300 text-lg leading-relaxed">
-          <p>
-            I'm a Computer Science graduate from{' '}
-            <span className="neon-text-cyan font-semibold">FAST-NUCES Lahore</span>, focused on
-            the intersection of{' '}
-            <span className="neon-text-violet font-semibold">AI automation</span> and{' '}
-            <span className="neon-text-magenta font-semibold">agentic systems</span>. I love
-            building systems that connect disparate tools, reason about their environment and act
-            autonomously to replace tedious manual workflows.
-          </p>
-          <p className="mt-4">
-            My experience spans DevOps infrastructure, ML-driven observability pipelines, and
-            full-stack web applications — all unified by a love for clean, purposeful engineering.
-          </p>
+        <div className="max-w-5xl mx-auto">
+          {/* Main bio */}
+          <div className="text-center text-gray-300 text-lg leading-relaxed mb-10">
+            <p>
+              I'm a Computer Science graduate from{' '}
+              <span className="neon-text-cyan font-semibold">FAST-NUCES Lahore</span>, focused on
+              the intersection of{' '}
+              <span className="neon-text-violet font-semibold">AI automation</span> and{' '}
+              <span className="neon-text-magenta font-semibold">agentic systems</span>. I love
+              building systems that connect disparate tools, reason about their environment and act
+              autonomously to replace tedious manual workflows.
+            </p>
+            <p className="mt-4">
+              My experience spans DevOps infrastructure, ML-driven observability pipelines, and
+              full-stack web applications — all unified by a love for clean, purposeful engineering.
+            </p>
+          </div>
+
+          {/* Product Analyst highlight card */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="glass-card rounded-2xl border border-neon-lime/20 p-6 sm:p-8"
+            style={{ boxShadow: '0 0 40px #39ff1410, inset 0 0 30px #39ff1405' }}
+          >
+            <div className="flex items-center gap-3 mb-5">
+              <div className="p-2.5 rounded-xl bg-neon-lime/10">
+                <FiBarChart2 className="text-neon-lime" size={22} />
+              </div>
+              <div>
+                <span className="text-xs font-mono text-neon-lime uppercase tracking-widest block">// analytical thinking</span>
+                <h3 className="text-xl font-bold text-white">Product Analyst Mindset</h3>
+              </div>
+            </div>
+            <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-2xl">
+              Beyond engineering, I bring a product analyst perspective — translating data into actionable insights,
+              defining metrics that matter, and understanding the user journey to build products people actually need.
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {[
+                { label: 'Data-Driven Decisions', icon: '📊' },
+                { label: 'User Research & Empathy', icon: '🎯' },
+                { label: 'KPI Definition & Tracking', icon: '📈' },
+                { label: 'Product Roadmapping', icon: '🗺️' },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: i * 0.08 }}
+                  whileHover={{ scale: 1.04 }}
+                  className="flex flex-col items-center gap-2 p-3 rounded-xl border border-neon-lime/15 bg-neon-lime/5 text-center"
+                >
+                  <span className="text-2xl">{item.icon}</span>
+                  <span className="text-xs font-semibold text-gray-300 leading-snug">{item.label}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </Section>
 

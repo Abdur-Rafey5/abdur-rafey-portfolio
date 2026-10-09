@@ -48,6 +48,7 @@ export const profile = {
     'Agentic Systems Builder',
     'Full-Stack Developer',
     'DevOps Enthusiast',
+    'Product Analyst',
   ],
   summary:
     'Motivated Computer Science graduate passionate about AI automation — building agentic systems that connect tools, streamline workflows and replace manual processes with intelligent, autonomous decision making.',
