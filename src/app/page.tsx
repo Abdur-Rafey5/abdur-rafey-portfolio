@@ -59,7 +59,11 @@ function HeroSection() {
         >
           <span className="text-gray-400">I build </span>
           <TypeAnimation
-            sequence={profile.taglines.flatMap((t) => [t, 2000])}
+            sequence={[
+              'Full Stack Projects', 2200,
+              'AI Automation Systems', 2200,
+              'Agentic AI Systems', 2200,
+            ]}
             repeat={Infinity}
             className="neon-text-cyan"
           />
@@ -307,50 +311,101 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Product Analyst highlight card */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="glass-card rounded-2xl border border-neon-lime/20 p-6 sm:p-8"
-            style={{ boxShadow: '0 0 40px #39ff1410, inset 0 0 30px #39ff1405' }}
-          >
-            <div className="flex items-center gap-3 mb-5">
-              <div className="p-2.5 rounded-xl bg-neon-lime/10">
-                <FiBarChart2 className="text-neon-lime" size={22} />
+          {/* Two highlight cards: Agentic AI + Product Analyst */}
+          <div className="grid md:grid-cols-2 gap-6">
+
+            {/* Agentic AI card */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="glass-card rounded-2xl border border-neon-cyan/20 p-6 sm:p-8"
+              style={{ boxShadow: '0 0 40px #00f5ff10, inset 0 0 30px #00f5ff05' }}
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <div className="p-2.5 rounded-xl bg-neon-cyan/10">
+                  <FiCpu className="text-neon-cyan" size={22} />
+                </div>
+                <div>
+                  <span className="text-xs font-mono text-neon-cyan uppercase tracking-widest block">// autonomous intelligence</span>
+                  <h3 className="text-xl font-bold text-white">Agentic AI Systems</h3>
+                </div>
               </div>
-              <div>
-                <span className="text-xs font-mono text-neon-lime uppercase tracking-widest block">// analytical thinking</span>
-                <h3 className="text-xl font-bold text-white">Product Analyst Mindset</h3>
+              <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                I architect AI agents that perceive, reason, plan and act — chaining tools,
+                APIs and LLMs into autonomous workflows that replace manual processes end-to-end.
+              </p>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { label: 'Multi-Agent Orchestration', icon: '🤖' },
+                  { label: 'Tool & API Chaining', icon: '🔗' },
+                  { label: 'LLM Integration', icon: '🧠' },
+                  { label: 'Autonomous Workflows', icon: '⚡' },
+                ].map((item, i) => (
+                  <motion.div
+                    key={item.label}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: i * 0.08 }}
+                    whileHover={{ scale: 1.04 }}
+                    className="flex flex-col items-center gap-2 p-3 rounded-xl border border-neon-cyan/15 bg-neon-cyan/5 text-center"
+                  >
+                    <span className="text-2xl">{item.icon}</span>
+                    <span className="text-xs font-semibold text-gray-300 leading-snug">{item.label}</span>
+                  </motion.div>
+                ))}
               </div>
-            </div>
-            <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-2xl">
-              Beyond engineering, I bring a product analyst perspective — translating data into actionable insights,
-              defining metrics that matter, and understanding the user journey to build products people actually need.
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {[
-                { label: 'Data-Driven Decisions', icon: '📊' },
-                { label: 'User Research & Empathy', icon: '🎯' },
-                { label: 'KPI Definition & Tracking', icon: '📈' },
-                { label: 'Product Roadmapping', icon: '🗺️' },
-              ].map((item, i) => (
-                <motion.div
-                  key={item.label}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: i * 0.08 }}
-                  whileHover={{ scale: 1.04 }}
-                  className="flex flex-col items-center gap-2 p-3 rounded-xl border border-neon-lime/15 bg-neon-lime/5 text-center"
-                >
-                  <span className="text-2xl">{item.icon}</span>
-                  <span className="text-xs font-semibold text-gray-300 leading-snug">{item.label}</span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+            </motion.div>
+
+            {/* Product Analyst card */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.12 }}
+              className="glass-card rounded-2xl border border-neon-lime/20 p-6 sm:p-8"
+              style={{ boxShadow: '0 0 40px #39ff1410, inset 0 0 30px #39ff1405' }}
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <div className="p-2.5 rounded-xl bg-neon-lime/10">
+                  <FiBarChart2 className="text-neon-lime" size={22} />
+                </div>
+                <div>
+                  <span className="text-xs font-mono text-neon-lime uppercase tracking-widest block">// analytical thinking</span>
+                  <h3 className="text-xl font-bold text-white">Product Analyst Mindset</h3>
+                </div>
+              </div>
+              <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                Beyond engineering, I bring a product analyst perspective — translating data
+                into actionable insights, defining metrics that matter, and understanding the
+                user journey to build products people actually need.
+              </p>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { label: 'Data-Driven Decisions', icon: '📊' },
+                  { label: 'User Research & Empathy', icon: '🎯' },
+                  { label: 'KPI Definition & Tracking', icon: '📈' },
+                  { label: 'Product Roadmapping', icon: '🗺️' },
+                ].map((item, i) => (
+                  <motion.div
+                    key={item.label}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: i * 0.08 }}
+                    whileHover={{ scale: 1.04 }}
+                    className="flex flex-col items-center gap-2 p-3 rounded-xl border border-neon-lime/15 bg-neon-lime/5 text-center"
+                  >
+                    <span className="text-2xl">{item.icon}</span>
+                    <span className="text-xs font-semibold text-gray-300 leading-snug">{item.label}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+          </div>
         </div>
       </Section>
 
